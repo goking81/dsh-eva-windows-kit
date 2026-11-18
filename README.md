@@ -54,7 +54,7 @@
 |---|---|---|
 | 没有独立显卡，或不确定 | **[通用版 CPU · `dsh-eva-windows-kit-v2-cpu.zip`](https://github.com/goking81/dsh-eva-windows-kit/releases/latest/download/dsh-eva-windows-kit-v2-cpu.zip)** | 68 MB |
 | NVIDIA 独显，想要日语克隆声 | **[N 卡版 · `dsh-eva-windows-kit-v2-nvidia.zip`](https://github.com/goking81/dsh-eva-windows-kit/releases/latest/download/dsh-eva-windows-kit-v2-nvidia.zip)** | 68 MB |
-| 安装手册（14 页 PDF） | [`DSH-EVA版-Windows安装配置手册-第2版.pdf`](https://github.com/goking81/dsh-eva-windows-kit/releases/latest/download/DSH-EVA%E7%89%88-Windows%E5%AE%89%E8%A3%85%E9%85%8D%E7%BD%AE%E6%89%8B%E5%86%8C-%E7%AC%AC2%E7%89%88.pdf) | 1.6 MB |
+| 安装手册（14 页 PDF） | [`DSH-EVA-Windows-Setup-Guide-v2.pdf`](https://github.com/goking81/dsh-eva-windows-kit/releases/latest/download/DSH-EVA-Windows-Setup-Guide-v2.pdf) | 1.6 MB |
 
 <sub>全部版本与校验值 → [Releases · v2.1](https://github.com/goking81/dsh-eva-windows-kit/releases/tag/v2.1)　·　⚠️ **别下 “Source code (zip)”**，那是整个仓库的源码，不是使用包。</sub>
 
@@ -375,7 +375,7 @@ Remove-Item -Recurse -Force C:\dsh-build
 |---|---|
 | `dsh-eva-windows-kit-v2-cpu.zip` | `8eb68d30ae3bbbce3aa6a146dba69b96b670a8c50857b9b5551b3321572e155d` |
 | `dsh-eva-windows-kit-v2-nvidia.zip` | `c44c97110c4eab90a402372882b88857a94aa7e7d049cad246827d938c534e36` |
-| 手册 PDF | `9cf1836d152e21f33d467c0393a11792813b5222d423bc08256fd958fcd39788` |
+| 手册 `DSH-EVA-Windows-Setup-Guide-v2.pdf` | `9cf1836d152e21f33d467c0393a11792813b5222d423bc08256fd958fcd39788` |
 
 ```powershell
 Get-FileHash .\dsh-eva-windows-kit-v2-cpu.zip -Algorithm SHA256
