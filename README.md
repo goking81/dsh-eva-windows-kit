@@ -11,7 +11,7 @@
 <img alt="platform" src="https://img.shields.io/badge/WINDOWS-10%20%2F%2011%20x64-1f6feb?style=flat-square">
 <img alt="node" src="https://img.shields.io/badge/NODE-24.x-3fb950?style=flat-square">
 <img alt="build" src="https://img.shields.io/badge/BUILD-CPU%20%2F%20NVIDIA-8957e5?style=flat-square">
-<img alt="license" src="https://img.shields.io/badge/LICENSE-MIXED%20%C2%B7%20SEE%20LICENSE.md-d29922?style=flat-square">
+<img alt="license" src="https://img.shields.io/badge/LICENSE-MIT-3fb950?style=flat-square">
 </p>
 
 [项目简介](#项目简介) · [功能亮点](#功能亮点) · [展示区](#展示区) · [目录与文件说明](#目录与文件说明) · [安装与使用](#安装与使用) · [注意事项](#注意事项) · [常见问题](#常见问题)
@@ -42,7 +42,7 @@
 > ⚠️ **先说清楚三件事**
 > 1. 这是**非官方**改装套件，与 DeepSeek、Khara / GAINAX 均无关联。
 > 2. 展示区分两种：**实机演示**是对着显示器拍的屏摄，内容真实但有反光与摩尔纹；**其余画面**由仓库内自带的原始素材合成（背景板 + 机体立绘 + 同一套 HUD 排版，桌宠则是原装立绘帧 + 复刻的玻璃对话窗），**不是截图**；文案与场景流程取自源码。
-> 3. 界面里的 EVA 角色形象涉及《新世纪福音战士》版权，**仅供私下体验，请勿公开分发或商用**。本仓库**没有**对套件内容发出任何许可，逐层说明见 [LICENSE.md](LICENSE.md)。
+> 3. **开源、可下载、可再分发**：构建脚本与打包内容以 **MIT** 发布，见 [LICENSE](LICENSE)。界面里的 EVA 角色形象版权归 Khara / GAINAX，属非商业同人使用，**不在 MIT 授权范围内**——这三类第三方内容的条款见 [THIRD-PARTY-NOTICES.md](THIRD-PARTY-NOTICES.md)。
 
 ---
 
@@ -214,14 +214,16 @@ dsh-eva-windows-kit/
 │   ├── self-check.cmd / self-check.mjs # 声音与记忆的自检
 │   ├── verify-share.mjs                # 转发前复查本机痕迹
 │   ├── SHA256SUMS.txt                  # 上列 7 个文件的校验值
-│   └── README.txt                      # 原包说明
+│   └── README.txt                      # 套件说明（开源口径）
 ├── dsh-eva-windows-kit-v2-nvidia/      # N 卡版（明日香日语用克隆声）
 │   └── …（文件同名同结构，仅源码包与 README 不同）
 ├── docs/
 │   └── DSH-EVA版-Windows安装配置手册-第2版.pdf   # 14 页完整手册
 ├── demo/
 │   └── DSH-EVA kit-Demo.mp4            # 38 秒实机录屏 1080p
-└── assets/showcase/                    # 本页展示图与动图
+├── assets/showcase/                    # 本页展示图与动图
+├── LICENSE                             # MIT（打包、脚本、文案）
+└── THIRD-PARTY-NOTICES.md              # EVA 素材 / 插件 / 模型 的条款
 ```
 
 | 文件 | 作用 | 备注 |
@@ -343,7 +345,7 @@ Remove-Item -Recurse -Force C:\dsh-build
 | ⚠️ | **未在真实 Windows 上实测**：随包手册写明「两个版本的构建脚本都已在 macOS 上用同样步骤走通，CPU 中日语声音与记忆向量实测正常」，但 Windows 上的完整流程、N 卡版显卡朗读、桌面浮窗都还没实机验证。踩坑请回[常见问题](#常见问题)或把日志发给分享者 |
 | ⚠️ | **没有数字签名**：SmartScreen 拦截属正常，需手动「仍要运行」 |
 | ⚠️ | **不会自动更新**，也没有使用统计。会话日志上传、反馈上传在本版本已关闭；左下角「意见反馈」会打开网页表单，不点就不发 |
-| ⚠️ | **EVA 角色形象有版权**：仅供朋友之间私下体验，请勿公开分发或商业使用 |
+| ⚠️ | **EVA 角色形象有版权**：可自由下载使用与再分发，但角色形象版权归 Khara / GAINAX，请勿单独提取或用于商业产品 |
 | ✅ | 声音、记忆全本地；「聊最新新闻」会读几家新闻站 RSS 标题，不打开就不联网 |
 | ✅ | 清理干净：构建目录可删，卸载后 `%USERPROFILE%\.dsh`、`%APPDATA%\DeepSeek Harness`、`文档\deepseek-harness\default-workspace` 需手动确认 |
 
@@ -397,8 +399,8 @@ node .\verify-share.mjs C:\dsh-build\output
 
 ## 致谢与许可
 
-> ⚠️ **本仓库没有「一个许可证」**，只有一条授权链：DSH 本体是 MIT，记忆插件是 Yuuyuko-uu 插件许可 1.2，EVA 角色素材无授权，声音模型三种各异。
-> 逐层说明、你被允许和不被允许做什么，都写在 **[LICENSE.md](LICENSE.md)**。**本仓库不对第 1–5 层发出任何许可。**
+> ✅ **本仓库以 MIT 开源**：打包、构建脚本、文案与展示图排版，都可以自由使用、修改、再分发，见 **[LICENSE](LICENSE)**。
+> ⚠️ 但有三类内容不属于 MIT：**EVA 角色形象**（Khara / GAINAX，非商业同人使用）、**`dsh-fish-memory` 插件**（Yuuyuko-uu 插件许可 1.2）、**声音与向量模型**（各自条款，使用时另行下载）。逐条说明见 **[THIRD-PARTY-NOTICES.md](THIRD-PARTY-NOTICES.md)**。
 
 | 对象 | 说明 |
 |---|---|
@@ -408,11 +410,11 @@ node .\verify-share.mjs C:\dsh-build\output
 | Kokoro | Apache-2.0 |
 | Supertonic 3 | OpenRAIL-M，有使用限制 |
 | Qwen3-Embedding | Apache-2.0（记忆检索） |
-| 《新世纪福音战士》 | 角色与视觉设定版权归 Khara / GAINAX。本套件**非官方、非商用**，仅供私下体验 |
+| 《新世纪福音战士》 | 角色与视觉设定版权归 Khara / GAINAX。本套件**非官方、非商用**同人作品，与权利人无关联 |
 
 <div align="center"><sub>
 
-整理与排版：把两个 kit 与手册原样归档，展示图用仓库内素材复刻排版 —— 不是实机录屏。
+整理与排版：把两个 kit 与手册归档，展示图用仓库内素材复刻排版 —— 不是实机录屏。kit 内 `README.txt` 的开源口径已与本页对齐。
 如果它让你某天早上打开电脑时笑了一下，这个仓库就算成了。
 
 </sub></div>

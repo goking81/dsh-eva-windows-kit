@@ -73,8 +73,9 @@ DeepSeek Harness EVA 指挥舱版（第 2 版·N 卡版）：Windows 安装包�
 安装包复制走之后，可以删除 C:\dsh-build，以释放空间。
 
 其他说明
-- 项目本身使用 MIT 许可证，见源码里的 LICENSE。
-- 界面中的 EVA 角色图（包括明日香的形象）涉及《新世纪福音战士》的版权，只供朋友之间私下体验，请不要公开分发或用于商业用途。
+- 项目本身（DSH 源码）使用 MIT 许可证，见源码里的 LICENSE。
+- 本套件的构建脚本与打包内容同样以 MIT 许可开源，可自由使用、修改与再分发。
+- 界面中的 EVA 角色图（包括明日香的形象）版权归 Khara / GAINAX，属非商业同人使用，不在 MIT 授权范围内。
 - 明日香的声音是本地合成的，不经过任何在线服务；语音输入第一次使用会下载约 240 MB 的识别模型。
 - 声音模型的许可：Irodori-TTS（MIT，禁止未经同意克隆真人声音）、Kokoro（Apache-2.0）、Supertonic 3（OpenRAIL-M，
   有使用限制）；记忆用的 Qwen3-Embedding 为 Apache-2.0。
