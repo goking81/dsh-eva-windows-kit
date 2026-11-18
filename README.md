@@ -14,7 +14,7 @@
 <img alt="license" src="https://img.shields.io/badge/LICENSE-MIT-3fb950?style=flat-square">
 </p>
 
-[项目简介](#项目简介) · [功能亮点](#功能亮点) · [展示区](#展示区) · [目录与文件说明](#目录与文件说明) · [安装与使用](#安装与使用) · [注意事项](#注意事项) · [常见问题](#常见问题)
+[下载](#下载) · [项目简介](#项目简介) · [功能亮点](#功能亮点) · [展示区](#展示区) · [目录与文件说明](#目录与文件说明) · [安装与使用](#安装与使用) · [注意事项](#注意事项) · [常见问题](#常见问题)
 
 </div>
 
@@ -43,6 +43,22 @@
 > 1. 这是**非官方**改装套件，与 DeepSeek、Khara / GAINAX 均无关联。
 > 2. 展示区分两种：**实机演示**是对着显示器拍的屏摄，内容真实但有反光与摩尔纹；**其余画面**由仓库内自带的原始素材合成（背景板 + 机体立绘 + 同一套 HUD 排版，桌宠则是原装立绘帧 + 复刻的玻璃对话窗），**不是截图**；文案与场景流程取自源码。
 > 3. **开源、可下载、可再分发**：构建脚本与打包内容以 **MIT** 发布，见 [LICENSE](LICENSE)。界面里的 EVA 角色形象版权归 Khara / GAINAX，属非商业同人使用，**不在 MIT 授权范围内**——这三类第三方内容的条款见 [THIRD-PARTY-NOTICES.md](THIRD-PARTY-NOTICES.md)。
+
+---
+
+## 下载
+
+**不用 clone 整个仓库** —— 那会连带 200 MB 的展示动图与录屏一起拉下来。直接下使用包：
+
+| 你的机器 | 下这个 | 大小 |
+|---|---|---|
+| 没有独立显卡，或不确定 | **[通用版 CPU · `dsh-eva-windows-kit-v2-cpu.zip`](https://github.com/goking81/dsh-eva-windows-kit/releases/latest/download/dsh-eva-windows-kit-v2-cpu.zip)** | 68 MB |
+| NVIDIA 独显，想要日语克隆声 | **[N 卡版 · `dsh-eva-windows-kit-v2-nvidia.zip`](https://github.com/goking81/dsh-eva-windows-kit/releases/latest/download/dsh-eva-windows-kit-v2-nvidia.zip)** | 68 MB |
+| 安装手册（14 页 PDF） | [`DSH-EVA版-Windows安装配置手册-第2版.pdf`](https://github.com/goking81/dsh-eva-windows-kit/releases/latest/download/DSH-EVA%E7%89%88-Windows%E5%AE%89%E8%A3%85%E9%85%8D%E7%BD%AE%E6%89%8B%E5%86%8C-%E7%AC%AC2%E7%89%88.pdf) | 1.6 MB |
+
+<sub>全部版本与校验值 → [Releases · v2.1](https://github.com/goking81/dsh-eva-windows-kit/releases/tag/v2.1)　·　⚠️ **别下 “Source code (zip)”**，那是整个仓库的源码，不是使用包。</sub>
+
+解压后双击 `build-windows.cmd`，完整步骤见[安装与使用](#安装与使用)。
 
 ---
 
@@ -238,9 +254,9 @@ dsh-eva-windows-kit/
 
 > 📘 完整手册（14 页，含逐步截图与全部报错对照）：[DSH-EVA版-Windows安装配置手册-第2版.pdf](docs/DSH-EVA%E7%89%88-Windows%E5%AE%89%E8%A3%85%E9%85%8D%E7%BD%AE%E6%89%8B%E5%86%8C-%E7%AC%AC2%E7%89%88.pdf)
 
-### 只取一个版本
+### 只想拿一个版本
 
-仓库里两个源码包各 70.8 MB，直接从网页「Download ZIP」会把两份都拉下来。只想要一个版本时：
+从[上方下载](#下载)拿 zip 是最省事的。如果你要的是**源码**而不是使用包：
 
 ```bash
 # 只检出通用版（其余文件不下载）
@@ -353,18 +369,31 @@ Remove-Item -Recurse -Force C:\dsh-build
 
 ## 校验
 
-```powershell
-# 校验源码包（应与下方一致）
-Get-FileHash .\dsh-eva-share-src.tar.gz -Algorithm SHA256
+**① 你下到的 zip / PDF**（与 Release 里附带的 `SHA256SUMS-v2.1.txt` 一致）
 
-# 或一次校验整个套件
-Get-Content .\SHA256SUMS.txt | ForEach-Object { $h,$f = $_ -split '\s+',2; "$f" }
+| 文件 | SHA-256 |
+|---|---|
+| `dsh-eva-windows-kit-v2-cpu.zip` | `8eb68d30ae3bbbce3aa6a146dba69b96b670a8c50857b9b5551b3321572e155d` |
+| `dsh-eva-windows-kit-v2-nvidia.zip` | `c44c97110c4eab90a402372882b88857a94aa7e7d049cad246827d938c534e36` |
+| 手册 PDF | `9cf1836d152e21f33d467c0393a11792813b5222d423bc08256fd958fcd39788` |
+
+```powershell
+Get-FileHash .\dsh-eva-windows-kit-v2-cpu.zip -Algorithm SHA256
 ```
+
+**② 解压后的源码包**（套件内 `SHA256SUMS.txt` 覆盖 7 个文件）
 
 | 版本 | `dsh-eva-share-src.tar.gz` SHA-256 |
 |---|---|
 | 通用版 CPU | `869f0e92b017f24408fb3f62393514c772c585119a9514c7f56b7da1f3722e22` |
 | N 卡版 NVIDIA | `be012032ea8115ff9628535577815dd9a44f70eb9226c563b159653cc1e4175a` |
+
+```powershell
+cd .\dsh-eva-windows-kit-v2-cpu
+Get-FileHash .\dsh-eva-share-src.tar.gz -Algorithm SHA256
+# 或一次校验套件内 7 个文件（Git Bash / WSL）
+sha256sum -c SHA256SUMS.txt
+```
 
 构建完、转发前，建议再跑一次：
 
