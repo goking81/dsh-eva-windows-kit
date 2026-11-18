@@ -11,7 +11,7 @@
 <img alt="platform" src="https://img.shields.io/badge/WINDOWS-10%20%2F%2011%20x64-1f6feb?style=flat-square">
 <img alt="node" src="https://img.shields.io/badge/NODE-24.x-3fb950?style=flat-square">
 <img alt="build" src="https://img.shields.io/badge/BUILD-CPU%20%2F%20NVIDIA-8957e5?style=flat-square">
-<img alt="license" src="https://img.shields.io/badge/LICENSE-MIT%20%2B%20%E9%99%84%E5%B8%A6%E8%AE%B8%E5%8F%AF-6e7681?style=flat-square">
+<img alt="license" src="https://img.shields.io/badge/LICENSE-MIXED%20%C2%B7%20SEE%20LICENSE.md-d29922?style=flat-square">
 </p>
 
 [项目简介](#项目简介) · [功能亮点](#功能亮点) · [展示区](#展示区) · [目录与文件说明](#目录与文件说明) · [安装与使用](#安装与使用) · [注意事项](#注意事项) · [常见问题](#常见问题)
@@ -42,7 +42,7 @@
 > ⚠️ **先说清楚三件事**
 > 1. 这是**非官方**改装套件，与 DeepSeek、Khara / GAINAX 均无关联。
 > 2. 展示区分两种：**实机演示**是对着显示器拍的屏摄，内容真实但有反光与摩尔纹；**其余画面**由仓库内自带的原始素材合成（背景板 + 机体立绘 + 同一套 HUD 排版，桌宠则是原装立绘帧 + 复刻的玻璃对话窗），**不是截图**；文案与场景流程取自源码。
-> 3. 界面里的 EVA 角色形象涉及《新世纪福音战士》版权，**仅供私下体验，请勿公开分发或商用**。
+> 3. 界面里的 EVA 角色形象涉及《新世纪福音战士》版权，**仅供私下体验，请勿公开分发或商用**。本仓库**没有**对套件内容发出任何许可，逐层说明见 [LICENSE.md](LICENSE.md)。
 
 ---
 
@@ -396,6 +396,9 @@ node .\verify-share.mjs C:\dsh-build\output
 ---
 
 ## 致谢与许可
+
+> ⚠️ **本仓库没有「一个许可证」**，只有一条授权链：DSH 本体是 MIT，记忆插件是 Yuuyuko-uu 插件许可 1.2，EVA 角色素材无授权，声音模型三种各异。
+> 逐层说明、你被允许和不被允许做什么，都写在 **[LICENSE.md](LICENSE.md)**。**本仓库不对第 1–5 层发出任何许可。**
 
 | 对象 | 说明 |
 |---|---|
