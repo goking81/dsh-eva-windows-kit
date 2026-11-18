@@ -172,6 +172,21 @@ dsh-eva-windows-kit/
 | `SHA256SUMS.txt` | 7 个文件的 SHA-256 | 见下方[校验](#校验) |
 | `README.txt` | 原包随附的中文说明 | 与本文档内容一致，纯文本版 |
 
+> 📘 完整手册（14 页，含逐步截图与全部报错对照）：[DSH-EVA版-Windows安装配置手册-第2版.pdf](docs/DSH-EVA%E7%89%88-Windows%E5%AE%89%E8%A3%85%E9%85%8D%E7%BD%AE%E6%89%8B%E5%86%8C-%E7%AC%AC2%E7%89%88.pdf)
+
+### 只取一个版本
+
+仓库里两个源码包各 70.8 MB，直接从网页「Download ZIP」会把两份都拉下来。只想要一个版本时：
+
+```bash
+# 只检出通用版（其余文件不下载）
+git clone --depth 1 --filter=blob:none --sparse https://github.com/goking81/dsh-eva-windows-kit.git
+cd dsh-eva-windows-kit
+git sparse-checkout set dsh-eva-windows-kit-v2-cpu
+
+# 换成 N 卡版就把最后一行改成 dsh-eva-windows-kit-v2-nvidia
+```
+
 ---
 
 ## 安装与使用
@@ -263,7 +278,7 @@ Remove-Item -Recurse -Force C:\dsh-build
 
 | | 事项 |
 |---|---|
-| ⚠️ | **未在真实 Windows 上实测**：官方说明是「两个版本的构建脚本都已在 macOS 上用同样步骤走通，CPU 中日语声音与记忆向量实测正常」，但 Windows 上的完整流程、N 卡版显卡朗读、桌面浮窗都还没实机验证。踩坑请回[常见问题](#常见问题)或把日志发给分享者 |
+| ⚠️ | **未在真实 Windows 上实测**：随包手册写明「两个版本的构建脚本都已在 macOS 上用同样步骤走通，CPU 中日语声音与记忆向量实测正常」，但 Windows 上的完整流程、N 卡版显卡朗读、桌面浮窗都还没实机验证。踩坑请回[常见问题](#常见问题)或把日志发给分享者 |
 | ⚠️ | **没有数字签名**：SmartScreen 拦截属正常，需手动「仍要运行」 |
 | ⚠️ | **不会自动更新**，也没有使用统计。会话日志上传、反馈上传在本版本已关闭；左下角「意见反馈」会打开网页表单，不点就不发 |
 | ⚠️ | **EVA 角色形象有版权**：仅供朋友之间私下体验，请勿公开分发或商业使用 |
