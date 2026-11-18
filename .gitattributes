@@ -1,0 +1,21 @@
+* text=auto eol=lf
+
+# The kit ships byte-exact copies with published SHA-256 sums: no line-ending
+# conversion for anything inside them (a single CRLF change breaks the checksums).
+dsh-eva-windows-kit-v2-cpu/**   -text
+dsh-eva-windows-kit-v2-nvidia/** -text
+
+# binaries: never diff, never normalize
+*.tar.gz binary
+*.pdf     binary
+*.exe     binary
+*.webp    binary
+*.jpg     binary
+*.png     binary
+*.gif     binary
+*.ogg     binary
+*.zip     binary
+
+# keep the archive and the showcase art out of the language bar
+*.tar.gz linguist-generated=true
+assets/showcase/* linguist-documentation=true
