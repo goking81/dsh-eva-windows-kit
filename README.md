@@ -82,7 +82,27 @@
 
 ## 展示区
 
-### 开机序列（动图）
+### 实机演示（屏摄）
+
+<table>
+<tr>
+<td width="50%"><img src="assets/showcase/demo-boot.gif" alt="实机开机序列屏摄"><br><sub><b>开机段 · 同步率 → 安全装置解除 → 发进</b>　真实运行画面，不是渲染。</sub></td>
+<td width="50%"><img src="assets/showcase/demo-work.gif" alt="实机工作台屏摄"><br><sub><b>工作台段 · 指挥舱地图 → 聚焦 → 协同任务完成</b>　机体在建筑间跑动是真实事件驱动的。</sub></td>
+</tr>
+</table>
+
+<p align="center">
+<a href="demo/DSH-EVA%20kit-Demo.mp4"><b>▶ 完整录屏 38 秒（1920×1080 · 含声音 · 45 MB）</b></a><br>
+<sub>四段全流程：窗口内开机 → 全屏走完六场 → 终端 → 指挥舱地图 → 聚焦 → 结算</sub>
+</p>
+
+> 📱 **关于这段录屏，四件事先说清楚**
+> - 画面是**对着显示器拍的**：有边框、反光与摩尔纹，动图已裁边，原片仍保留这些痕迹。
+> - **音轨是后期配乐**，不是应用自己的开机音效（文件元数据里有即梦 / Dreamina 的导出记录）。
+> - 编码是 **HEVC/H.265**：macOS 与新版 Windows 可直接播放，旧版 Windows 需装 HEVC 扩展。
+> - 身份卡上的「驾驶员 FRANKY」是录制者填的名字 —— 装好后可在「指挥舱选项 → 驾驶员名称」改成自己的。
+
+### 开机序列（逐场 · 素材合成）
 
 <p align="center">
 <img src="assets/showcase/boot-sequence.gif" alt="六场开机序列" width="100%">
@@ -107,11 +127,7 @@
 </tr>
 </table>
 
-### 落进工作台之后
-
-<p align="center">
-<img src="assets/showcase/cockpit-map.gif" alt="指挥舱地图巡览" width="100%">
-</p>
+### 落进工作台之后（界面定格）
 
 <table>
 <tr>
@@ -137,7 +153,9 @@ packages/client/ui-command-bay/src/client/assets/
 └── boot-sfx-*.ogg / boot-voice-*.ogg               # 开机音效与语音
 ```
 
-合成时套用了和 app 内一致的 HUD 排版（`SCENE 0X / NAME`、进度段、身份卡字段），并叠了一层细扫描线与暗角。**素材本身是原装的，排版是复刻的，画面不是实机截图。**
+合成时套用了和 app 内一致的 HUD 排版（`SCENE 0X / NAME`、进度段、身份卡字段），并叠了一层细扫描线与暗角。**素材本身是原装的，排版是复刻的。**
+
+实机演示那段是另一回事：它是`demo/DSH-EVA kit-Demo.mp4` 直接抽帧压缩的，只做了裁边（去掉显示器边框）、缩放与抽帧压缩（640px / 8fps），**没有合成、没有补画、没有逐帧修图**。
 
 </details>
 
@@ -159,6 +177,8 @@ dsh-eva-windows-kit/
 │   └── …（文件同名同结构，仅源码包与 README 不同）
 ├── docs/
 │   └── DSH-EVA版-Windows安装配置手册-第2版.pdf   # 14 页完整手册
+├── demo/
+│   └── DSH-EVA kit-Demo.mp4            # 38 秒实机录屏 1080p
 └── assets/showcase/                    # 本页展示图与动图
 ```
 

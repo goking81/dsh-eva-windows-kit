@@ -15,6 +15,7 @@ dsh-eva-windows-kit-v2-nvidia/** -text
 *.gif     binary
 *.ogg     binary
 *.zip     binary
+*.mp4     binary
 
 # keep the archive and the showcase art out of the language bar
 *.tar.gz linguist-generated=true
