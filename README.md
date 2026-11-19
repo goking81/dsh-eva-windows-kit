@@ -14,85 +14,16 @@
 <img alt="license" src="https://img.shields.io/badge/LICENSE-MIT-3fb950?style=flat-square">
 </p>
 
-[下载](#下载) · [项目简介](#项目简介) · [功能亮点](#功能亮点) · [展示区](#展示区) · [目录与文件说明](#目录与文件说明) · [安装与使用](#安装与使用) · [注意事项](#注意事项) · [常见问题](#常见问题)
+[展示区](#展示区) · [项目简介](#项目简介) · [下载](#下载) · [功能亮点](#功能亮点) · [目录与文件说明](#目录与文件说明) · [安装与使用](#安装与使用) · [注意事项](#注意事项) · [常见问题](#常见问题)
 
 </div>
 
 ---
 
-## 项目简介
-
-这是一套 **Windows 安装包构建套件**：把 DeepSeek Harness（DSH）桌面端打包装进一层 EVA 风格的「指挥舱」外壳里，打开应用先播一段六场开机动画，再进入工作台。
-
-开机序列不是贴片视频，而是按本机真实状态渲染的流程：
-
-| 场次 | 屏幕上写的 | 实际在做什么 |
-|---|---|---|
-| 01 | `NERV` | 标志浮出、格言逐字打出、第壹话标题卡落下。纯本地渲染 |
-| 02 | `MAGI SYSTEM` | 三个「贤人」并行体检：主机连接、模型目录、访问权限 |
-| 03 | `PILOT AUTH` | 插入栓 02 锁定，身份卡核对驾驶员名称、工作区、登录状态 |
-| 04 | `NEURAL LINK` | A10 线路逐条接续，读的是本机 DSH 的技能清单与插件清单 |
-| 05 | `SYNC RATIO` | 同步率随接续结果爬升，接不上就停住并说明原因 |
-| 06 | `LAUNCH` | 最终安全装置解除，贰号机发进，进入工作台（`ESC` 可跳过） |
-
-一句话概括：**外壳是《新世纪福音战士》的，内核还是你自己的 DSH。**
-
-<sub>English: a Windows build kit that wraps DeepSeek Harness in an EVA-style cockpit with a six-scene boot sequence driven by real local state.</sub>
-
 > ⚠️ **先说清楚三件事**
 > 1. 这是**非官方**改装套件，与 DeepSeek、Khara / GAINAX 均无关联。
 > 2. 展示区分两种：**实机演示**是对着显示器拍的屏摄，内容真实但有反光与摩尔纹；**其余画面**由仓库内自带的原始素材合成（背景板 + 机体立绘 + 同一套 HUD 排版，桌宠则是原装立绘帧 + 复刻的玻璃对话窗），**不是截图**；文案与场景流程取自源码。
 > 3. **开源、可下载、可再分发**：构建脚本与打包内容以 **MIT** 发布，见 [LICENSE](LICENSE)。界面里的 EVA 角色形象版权归 Khara / GAINAX，属非商业同人使用，**不在 MIT 授权范围内**——这三类第三方内容的条款见 [THIRD-PARTY-NOTICES.md](THIRD-PARTY-NOTICES.md)。
-
----
-
-## 下载
-
-**不用 clone 整个仓库** —— 那会连带 200 MB 的展示动图与录屏一起拉下来。直接下使用包：
-
-| 你的机器 | 下这个 | 大小 |
-|---|---|---|
-| 没有独立显卡，或不确定 | **[通用版 CPU · `dsh-eva-windows-kit-v2-cpu.zip`](https://github.com/goking81/dsh-eva-windows-kit/releases/latest/download/dsh-eva-windows-kit-v2-cpu.zip)** | 68 MB |
-| NVIDIA 独显，想要日语克隆声 | **[N 卡版 · `dsh-eva-windows-kit-v2-nvidia.zip`](https://github.com/goking81/dsh-eva-windows-kit/releases/latest/download/dsh-eva-windows-kit-v2-nvidia.zip)** | 68 MB |
-| 安装手册（14 页 PDF） | [`DSH-EVA-Windows-Setup-Guide-v2.pdf`](https://github.com/goking81/dsh-eva-windows-kit/releases/latest/download/DSH-EVA-Windows-Setup-Guide-v2.pdf) | 1.6 MB |
-
-<sub>全部版本与校验值 → [Releases · v2.1](https://github.com/goking81/dsh-eva-windows-kit/releases/tag/v2.1)　·　⚠️ **别下 “Source code (zip)”**，那是整个仓库的源码，不是使用包。</sub>
-
-解压后双击 `build-windows.cmd`，完整步骤见[安装与使用](#安装与使用)。
-
----
-
-## 功能亮点
-
-### 开机这一层
-
-| 亮点 | 说明 |
-|---|---|
-| ✅ 六场开机序列 | 每场都有独立画面与音效（`boot-sfx-*.ogg`、`boot-voice-*.ogg`），可用 `ESC` 整段跳过 |
-| ✅ 状态是真的 | MAGI 三项检查、A10 接续清单、同步率全部读本机状态，超时会如实报错而不是假装通过 |
-| ✅ 身份卡可改名 | 「指挥舱选项 → 驾驶员名称」里改，名字存本机，留空则用主机用户名 |
-| ✅ 播放时机可选 | 每次打开 / 每天首次 / 关闭，也可以手动「重新播放开机动画」 |
-| ✅ 低动效 | 机体直接移动、镜头静止，照顾晕动与低配机器 |
-
-### 指挥舱这一层
-
-| 界面 | 内容 |
-|---|---|
-| `01` 指挥舱 | 等距视角基地地图，Lead 开初号机、分析 Agent 开零号机·改、执行 Agent 开贰号机，在六栋建筑之间跑任务 |
-| `02` 审议厅 | 智慧决策委员会：委员陈述、交叉质询、反方审计，讲台全息投影显示裁决 |
-| `03` 聚焦 | 机体展台（可拖动 / `FRONT · 3/4 · SIDE · BACK` 旋转）、驾驶员卡、该 Agent 的任务与用量 |
-| `04` 任务结算 | 三台机体同框，汇总子任务、参与 Agent、工时、Token、缓存命中与协同消息数 |
-| `05` 编组 | 每台机体对应的 Agent、职责与入列规则，以及支援单元 |
-
-键盘 `1`–`5` 切界面，`Esc` 回指挥舱。
-
-### 第 2 版新增
-
-- **智慧决策委员会**：请几位思想框架委员审议一个决策，过程在「02 审议厅」里看得见。
-- **自动化任务页**：每次定时运行产出的文件，都能在运行记录里查看和打开。
-- **开机身份卡**：驾驶员名称可以自己改。
-- **明日香伴侣（实验）**：打字或语音聊天、闲聊、记会议纪要，会开口朗读，记忆按意思回忆，也能「放到桌面上」浮在其他程序上方。
-- **修复**：多次启动后登录失败、应用打不开的问题。
 
 ---
 
@@ -216,6 +147,77 @@ packages/client/ui-command-bay/src/client/assets/
 实机演示那段是另一回事：它是`demo/DSH-EVA kit-Demo.mp4` 直接抽帧压缩的，只做了裁边（去掉显示器边框）、缩放与抽帧压缩（640px / 8fps），**没有合成、没有补画、没有逐帧修图**。
 
 </details>
+
+---
+
+## 项目简介
+
+这是一套 **Windows 安装包构建套件**：把 DeepSeek Harness（DSH）桌面端打包装进一层 EVA 风格的「指挥舱」外壳里，打开应用先播一段六场开机动画，再进入工作台。
+
+开机序列不是贴片视频，而是按本机真实状态渲染的流程：
+
+| 场次 | 屏幕上写的 | 实际在做什么 |
+|---|---|---|
+| 01 | `NERV` | 标志浮出、格言逐字打出、第壹话标题卡落下。纯本地渲染 |
+| 02 | `MAGI SYSTEM` | 三个「贤人」并行体检：主机连接、模型目录、访问权限 |
+| 03 | `PILOT AUTH` | 插入栓 02 锁定，身份卡核对驾驶员名称、工作区、登录状态 |
+| 04 | `NEURAL LINK` | A10 线路逐条接续，读的是本机 DSH 的技能清单与插件清单 |
+| 05 | `SYNC RATIO` | 同步率随接续结果爬升，接不上就停住并说明原因 |
+| 06 | `LAUNCH` | 最终安全装置解除，贰号机发进，进入工作台（`ESC` 可跳过） |
+
+一句话概括：**外壳是《新世纪福音战士》的，内核还是你自己的 DSH。**
+
+<sub>English: a Windows build kit that wraps DeepSeek Harness in an EVA-style cockpit with a six-scene boot sequence driven by real local state.</sub>
+
+---
+
+## 下载
+
+**不用 clone 整个仓库** —— 那会连带 200 MB 的展示动图与录屏一起拉下来。直接下使用包：
+
+| 你的机器 | 下这个 | 大小 |
+|---|---|---|
+| 没有独立显卡，或不确定 | **[通用版 CPU · `dsh-eva-windows-kit-v2-cpu.zip`](https://github.com/goking81/dsh-eva-windows-kit/releases/latest/download/dsh-eva-windows-kit-v2-cpu.zip)** | 68 MB |
+| NVIDIA 独显，想要日语克隆声 | **[N 卡版 · `dsh-eva-windows-kit-v2-nvidia.zip`](https://github.com/goking81/dsh-eva-windows-kit/releases/latest/download/dsh-eva-windows-kit-v2-nvidia.zip)** | 68 MB |
+| 安装手册（14 页 PDF） | [`DSH-EVA-Windows-Setup-Guide-v2.pdf`](https://github.com/goking81/dsh-eva-windows-kit/releases/latest/download/DSH-EVA-Windows-Setup-Guide-v2.pdf) | 1.6 MB |
+
+<sub>全部版本与校验值 → [Releases · v2.1](https://github.com/goking81/dsh-eva-windows-kit/releases/tag/v2.1)　·　⚠️ **别下 “Source code (zip)”**，那是整个仓库的源码，不是使用包。</sub>
+
+解压后双击 `build-windows.cmd`，完整步骤见[安装与使用](#安装与使用)。
+
+---
+
+## 功能亮点
+
+### 开机这一层
+
+| 亮点 | 说明 |
+|---|---|
+| ✅ 六场开机序列 | 每场都有独立画面与音效（`boot-sfx-*.ogg`、`boot-voice-*.ogg`），可用 `ESC` 整段跳过 |
+| ✅ 状态是真的 | MAGI 三项检查、A10 接续清单、同步率全部读本机状态，超时会如实报错而不是假装通过 |
+| ✅ 身份卡可改名 | 「指挥舱选项 → 驾驶员名称」里改，名字存本机，留空则用主机用户名 |
+| ✅ 播放时机可选 | 每次打开 / 每天首次 / 关闭，也可以手动「重新播放开机动画」 |
+| ✅ 低动效 | 机体直接移动、镜头静止，照顾晕动与低配机器 |
+
+### 指挥舱这一层
+
+| 界面 | 内容 |
+|---|---|
+| `01` 指挥舱 | 等距视角基地地图，Lead 开初号机、分析 Agent 开零号机·改、执行 Agent 开贰号机，在六栋建筑之间跑任务 |
+| `02` 审议厅 | 智慧决策委员会：委员陈述、交叉质询、反方审计，讲台全息投影显示裁决 |
+| `03` 聚焦 | 机体展台（可拖动 / `FRONT · 3/4 · SIDE · BACK` 旋转）、驾驶员卡、该 Agent 的任务与用量 |
+| `04` 任务结算 | 三台机体同框，汇总子任务、参与 Agent、工时、Token、缓存命中与协同消息数 |
+| `05` 编组 | 每台机体对应的 Agent、职责与入列规则，以及支援单元 |
+
+键盘 `1`–`5` 切界面，`Esc` 回指挥舱。
+
+### 第 2 版新增
+
+- **智慧决策委员会**：请几位思想框架委员审议一个决策，过程在「02 审议厅」里看得见。
+- **自动化任务页**：每次定时运行产出的文件，都能在运行记录里查看和打开。
+- **开机身份卡**：驾驶员名称可以自己改。
+- **明日香伴侣（实验）**：打字或语音聊天、闲聊、记会议纪要，会开口朗读，记忆按意思回忆，也能「放到桌面上」浮在其他程序上方。
+- **修复**：多次启动后登录失败、应用打不开的问题。
 
 ---
 
